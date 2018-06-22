@@ -1,3 +1,28 @@
-<p>
-  dashboard works!
-</p>
+<div class="topright"><button type="button" (click)="logOut()">Logout</button></div>
+<form style="border:1px solid #ccc" >
+  <div class="container">
+    <h1>User Domain</h1>
+    <p></p>
+    <hr>
+    <label for="domain"><b>Set Your Domain</b></label>
+    <input type="text" placeholder="www.google.co.in" [(ngModel)]="userDomain" name="Udomain" required>
+    <div class="clearfix">
+      <button type="submit" class="signupbtn" (click)="setDomain()">Submit</button>
+    </div>
+  </div>
+</form>
+<form style="border:1px solid #ccc" >
+  <div class="container">
+    <h1>Search Domain</h1>
+    <p></p>
+    <hr>
+    <label for="domain"><b>Enter a Domain</b></label>
+    <input type="text" placeholder="www.google.co.in" [(ngModel)]="searchDomain" name="Udomain" (ngModelChange)="searchDomainChange()" required>
+    <span *ngIf="domainCheck">{{resultDomain}}</span>    
+    <div class="clearfix">
+      <button type="submit" class="signupbtn" (click)="getDomain()">Search</button>
+    </div>
+  </div>
+</form>
+<div id="snackbar" [ngClass]="{'show': toasterShow==true}">{{message}}</div>
+

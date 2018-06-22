@@ -1,30 +1,24 @@
+<form style="border:1px solid #ccc" >
+  <div class="container">
+    <h1>Login</h1>
+    <p></p>
+    <hr>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" [(ngModel)]="email" name="Uemail" required>
 
-<div class="login-page" >
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" [(ngModel)]="password"  name="psw" required>
 
-  <div class="row justify-content-md-center">
-    <div class="col-md-4">
-      <!-- <img src="assets/images/logo.png" width="150px" class="user-avatar" /> -->
-      <h1>DnS Management</h1>
-      <form role="form" method="post" (submit)="onLoggedin()">
-        <div class="form-content">
-          <div class="form-group">
-            <label for="email">user Email :</label>
-            <input type="email" [(ngModel)]="email" required name="email" class="form-control input-underline input-lg" id="email"
-              placeholder="Email">
-          </div>
-          <div class="form-group">
-              <label for="password">Password  :</label>
-            <input type="password" [(ngModel)]="password" required name="password" class="form-control input-underline input-lg"
-              id="password" placeholder="Password">
-          </div>
-        </div>
-        <div *ngIf="loginError" class="alert alert-danger col-md-12">
-          {{loginError}}
-        </div>
-        <button type="submit" class="btn rounded-btn" > Log in </button>
-        &nbsp; 
-        <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
-      </form>
+    <!-- <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label> -->
+
+    <div class="clearfix">
+      <button type="submit" class="signupbtn" (click)="Onsubmit()" >Login</button>
+    </div>
+    <div class="clearfix">
+        <a class="signupbtn" routerLink='/signup'>Register Here</a>
     </div>
   </div>
-</div>
+</form>
+<div id="snackbar" [ngClass]="{'show': toasterShow==true}">{{message}}</div>

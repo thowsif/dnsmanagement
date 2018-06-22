@@ -1,6 +1,5 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    bcrypt = require('bcrypt-nodejs');
+    Schema = mongoose.Schema;
 
 var dnsuser = new Schema({
     name:{
@@ -18,12 +17,12 @@ var dnsuser = new Schema({
 
 },{ versionKey: false });
 
-dnsuser.methods.generateHash = function (password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
+// dnsuser.methods.generateHash = function (password) {
+//     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+// };
 
-dnsuser.methods.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
-};
+// dnsuser.methods.validPassword = function (password) {
+//     return bcrypt.compareSync(password, this.password);
+// };
 
 module.exports = mongoose.model('dnsusers', dnsuser);
